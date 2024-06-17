@@ -1,231 +1,133 @@
+
+
 //1
 
-const arr = [1, 5, 7, 9];
-console.log(Math.min(...arr));
+class Book{
+    constructor(title, author, pages){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+    }
+    
+    displayInfo(){
+        console.log(`Tiile:${this.title},Author:${this.author},Pages:${this.pages}`);
+    }
+}
+
+var lib =new Array();
+for (var i = 0; i < 10; i++) {
+    lib.push(new Book("Title" + i, "Author" + i, i));
+}
+
+
+lib.forEach((book) => book.displayInfo());
+
 
 
 //2
 
-function Counter() {
-    this.cnt = 0;
-    this.increment = function () {
-        this.cnt++;
-        return this.cnt;
+class Student {
+    constructor(name, age, grade) {
+        this.name = name;
+        this.age = age;
+        this.grade = grade;
     }
-    this.decrement = function () {
-        this.cnt--;
-        return this.cnt;
-    }
-
-    this.getCnt = function () {
-        return this.cnt;
+    displayInfo() {
+        console.log(`Name:${this.name},Age:${this.age},Grade:${this.grade}`);
     }
 }
 
-function createCounter() {
-    return new Counter();
-}
-
-var counter = createCounter();
-console.log(counter.increment());
-console.log(counter.increment());
-console.log(counter.increment());
-console.log(counter.increment());
-console.log(counter.decrement());
-console.log(counter.decrement());
-console.log(counter.getCnt());
+// Пример использования класса
+const student1 = new Student("John Smith", 16, "10th grade");
+student1.displayInfo();
 
 
-//3
-
-function findElementByClass(element, name) {
-    if (element.classList.contains(name)) {
-        return element;
-    } else {
-        for (var i = 0; i < element.children.length; i++) {
-            var el = findElementByClass(element.children[i], name)
-            if (el != null) {
-                return el;
-            }
-        }
-        return null;
-    }
-}
-
-
-const rootElement = document.getElementById('root');
-const targetElement = findElementByClass(rootElement, 'form-control');
-console.log(targetElement);
+const student2 = new Student("Jane Doe", 17, "11th grade");
+student2.displayInfo();
 
 
 
 
+//1
 
+//function Person(name,age,gender) {
+//    this.name = name;
+//    this.age = age;
+//    this.gender = gender;
+//    this.intriduce = function () {
+//        console.log(`My name is ${this.name},I am ${this.age}, I am ${this.gender}`);
+//    }
 
-
-
-
-
-
-
-
-//function arrayMerge(...arr) {
-//    return arr;
+//    this.changeName=function(newName){
+//        this.name = newName;
+//    }
 //}
 
 
-//console.log(arrayMerge(...[1, 2, 3, 4, 5], ...[11, 22, 33, 44, 55, 66, 77]));
+//let person1 = new Person("John", 24, "male");
+//person1.intriduce();
+//person1.changeName("Mike");
+//person1.intriduce();
 
 
-//const arrayMerge=(arr1, arr2)=> [...arr1, ...arr2];
 
-
-//console.log(arrayMerge([1, 2, 3, 4, 5],[11, 22, 33, 44, 55, 66, 77]));
-
-//function arrayMergeWithoutDubl(...arr) {
-//    return arr.filter((item, index) => {
-//        for (var i = 0; i < index; i++) {
-//            if (arr[i] == item) {
-//                return false;
-//            }
-//        }
-//        return true;
-//    });
-//}
-
-
-//const removeDoblicates = (...args) => args.filter((item, index) => args.indexOf(item) === index);
-
-
-//console.log(arrayMergeWithoutDubl(...[1, 2, 3, 4, 5], ...[11, 22, 1, 33, 44, 3, 55, 66, 77]));
-
-//console.log(removeDoblicates(...[1, 2, 3, 4, 5],...[11, 22, 1, 33, 44, 3, 55, 66, 77]));
 
 //2
 
-//const getEvenNumbers = (arr) => arr.filter((item) => item % 2 === 0);
+//function Animal() {
+//    this.name = '';
+//    this.eat = function () {
+//        console.log(this.name+" eat");
+//    }
+//}
 
-//console.log(getEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+//function Dog(name) {
+//    this.name = name;
+//    this.bark = function () {
+//        console.log("Gav,Gav");
+//    }
+//    this.eat;
+//}
 
+//var dog =new Dog("Jery");
+//var animal = new Animal();
+//dog.eat = animal.eat;
 
-
-//const calculateAvarege = (arr) => arr.reduce((sum, item) => sum += item) / arr.length;
-
-//console.log(calculateAvarege([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
-
-
-//const CapitalizeFirstLetter = (str) => str.split(' ').map((word) => word[0].toUpperCase() + word.slice(1)).join(" ");
-
-
-//console.log(CapitalizeFirstLetter("vcbcbc fdfgdff fgfgrfg wwwww rrrrr rrr"));
+//dog.bark();
+//dog.eat();
 
 
 
 //3
 
-//function myObj(num) {
-//    this.num = num;
-//    this.add = function (num) {
-//        this.num += num;
-//        return this.num;
-//    }
+//const calculator = {
+//    name: "Calc",
+//    mult(a,b) {
+//        return ""+this.name+" "+(a*b);
+//    },
 
-//    this.subtract = function (num) {
-//        this.num -= num;
-//        return this.num;
-//    }
+//    add(a, b) {
+//        return "" + this.name + " " +( a + b);
+//    },
+
+//    subtract(a, b) {
+//        return "" + this.name + " " + (a - b);
+//    },
+
 //}
 
+//const stud = {
+//    name: "Sasha",
 
-//var my_obj = new myObj(10);
-
-//console.log(my_obj);
-
-
-//console.log(my_obj.add(9));
-
-//console.log(my_obj.subtract(8));
-
-
-//4
-
-
-
-
-
-
-//function getName(name) {
-//    return name;
 //}
 
-//function createGreatings(func) {
-//    return "Hello " + func;
-//}
+//console.log(calculator.add.call(calculator, 10, 5));
+//console.log(calculator.mult.apply(calculator, [3, 5]));
+//console.log(calculator.subtract.call(calculator, 33, 7));
 
-//console.log(createGreatings(getName("John")));
-
-
-
-//function summ(num) {
-//    var res = num % 10;
-//    if (Math.floor(num/10)!= 0) {
-//        res += summ(Math.floor(num / 10));
-//    }
-//    return res;
-//}
-
-
-
-//console.log("RES "+summ(403253));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//console.log(calculator.add.call(stud, 10, 5));
+//console.log(calculator.mult.apply(stud, [3, 5]));
+//console.log(calculator.subtract.call(stud, 33, 7));
 
 
 
